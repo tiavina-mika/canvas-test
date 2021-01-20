@@ -1,5 +1,5 @@
 const canvas = document.getElementById("canvas");
-const context = canvas.getContext('2d');
+const ctx = canvas.getContext('2d');
 
 const darw = () => {
 
@@ -10,20 +10,18 @@ const darw = () => {
     canvas.top = 0;
     canvas.left = 0;
 
-    // context.fillStyle = '#000'
-    // context.fillRect(0, 0, width, height)
+    // ctx.fillStyle = '#000'
+    // ctx.fillRect(0, 0, width, height)
 
-    context.font = 'bold 20px Menlo'
-    // // context.textAlign = 'left'
-    context.textBaseline = 'middle'
-    // context.fillStyle = 'red'
+    ctx.font = 'bold 20px Menlo';
+    // ctx.textAlign = 'left'
+    ctx.textBaseline = 'middle';
 
-    const text = 'Hello, World!'
-    // TextMetrics.fontBoundingBoxAscent
-    const textWidth = context.measureText(text).width;
-    const fontBoundingBoxAscent = context.measureText(text).fontBoundingBoxAscent;
-    const fontBoundingBoxDescent = context.measureText(text).fontBoundingBoxDescent;
-    const actualBoundingBoxAscent  = context.measureText(text).actualBoundingBoxAscent ;
+    const text = 'Hello, World!';
+    const textWidth = ctx.measureText(text).width;
+    const fontBoundingBoxAscent = ctx.measureText(text).fontBoundingBoxAscent;
+    const fontBoundingBoxDescent = ctx.measureText(text).fontBoundingBoxDescent;
+    const actualBoundingBoxAscent  = ctx.measureText(text).actualBoundingBoxAscent ;
 		const centerX = (width / 2) - (textWidth / 2);
 
     console.log('fontBoundingBoxAscent', fontBoundingBoxAscent);
@@ -31,20 +29,20 @@ const darw = () => {
     console.log('actualBoundingBoxAscent', actualBoundingBoxAscent);
 
 
-    context.fillStyle = 'green';
-    context.fillRect(
+    ctx.fillStyle = 'green';
+    ctx.fillRect(
       0, 
       0, 
       width, 
       height
     )
-    context.fillStyle = '#fff'
-    context.fillText(text, centerX, height - fontBoundingBoxAscent)
-    // context.fillText(text, 0, 80)
+    ctx.fillStyle = '#fff'
+    ctx.fillText(text, centerX, height - fontBoundingBoxAscent)
+    // ctx.fillText(text, 0, 80)
 
-    // context.fillStyle = '#fff'
-    // context.font = 'bold 30pt Menlo'
-    // context.fillText('flaviocopes.com', 600, 530)
+    // ctx.fillStyle = '#fff'
+    // ctx.font = 'bold 30pt Menlo'
+    // ctx.fillText('flaviocopes.com', 600, 530)
 };
 
 darw();
